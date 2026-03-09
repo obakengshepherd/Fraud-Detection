@@ -146,15 +146,15 @@ evaluation path — it is an operational and analyst interface only.
 
 ---
 
-## Component Responsibilities Summary
+## Component Responsibilities Summary.
 
-| Component            | Responsibility                                           | Communicates Via       |
-|----------------------|----------------------------------------------------------|------------------------|
-| Kafka Consumer       | Consume transactions, manage offset commit after write   | Kafka protocol         |
-| RuleEngine           | Load rules, execute in priority order, aggregate score   | In-memory + PostgreSQL |
-| VelocityChecker      | Sliding window transaction counts per user               | Redis                  |
-| ProfileLoader        | Load and cache user behaviour profiles                   | Redis + PostgreSQL     |
-| Redis                | Velocity counters + behaviour profile cache              | In-memory              |
-| PostgreSQL           | Rules, evaluation results, alerts (source of truth)      | TCP                    |
-| Kafka (decisions)    | Publish FraudDecision events to downstream consumers     | Kafka protocol         |
-| Fraud API            | Rule management, alert resolution, evaluation history    | HTTP                   |
+| Component         | Responsibility                                         | Communicates Via       |
+| ----------------- | ------------------------------------------------------ | ---------------------- |
+| Kafka Consumer    | Consume transactions, manage offset commit after write | Kafka protocol         |
+| RuleEngine        | Load rules, execute in priority order, aggregate score | In-memory + PostgreSQL |
+| VelocityChecker   | Sliding window transaction counts per user             | Redis                  |
+| ProfileLoader     | Load and cache user behaviour profiles                 | Redis + PostgreSQL     |
+| Redis             | Velocity counters + behaviour profile cache            | In-memory              |
+| PostgreSQL        | Rules, evaluation results, alerts (source of truth)    | TCP                    |
+| Kafka (decisions) | Publish FraudDecision events to downstream consumers   | Kafka protocol         |
+| Fraud API         | Rule management, alert resolution, evaluation history  | HTTP                   |
