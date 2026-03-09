@@ -46,27 +46,32 @@ resolution action and the resolving user.
 ## Non-Functional Requirements
 
 ### Availability
+
 - **NFR-01** — The fraud evaluation pipeline shall maintain 99.9% uptime.
 - **NFR-02** — A single consumer instance failure shall result in automatic Kafka partition
   rebalancing and no message loss (messages are re-consumed from the last committed offset).
 
 ### Latency
+
 - **NFR-03** — End-to-end evaluation latency (Kafka message consumed to `FraudDecision`
   event published) p99 ≤ 50ms under steady-state load.
 - **NFR-04** — Rule changes activated in the database shall take effect on the evaluation
   engine within 60 seconds.
 
 ### Throughput
+
 - **NFR-05** — The system shall evaluate 100% of transactions at peak upstream throughput
   (200 TPS from Payment Processing) with zero message loss.
 - **NFR-06** — Consumer group lag on the `transactions` topic shall not exceed 1,000
   messages under normal operating conditions.
 
 ### Durability
+
 - **NFR-07** — Every evaluation result and decision shall be persisted to PostgreSQL before
   the Kafka offset is committed — ensuring at-least-once evaluation with idempotent writes.
 
 ### Consistency
+
 - **NFR-08** — Velocity counters may exhibit a brief inconsistency window (≤ TTL of the
   counter) after a Redis restart. This is accepted as a graceful degradation mode.
 - **NFR-09** — All evaluation results for a given transaction ID are idempotent — a duplicate
@@ -74,15 +79,15 @@ resolution action and the resolving user.
 
 ---
 
-## Estimated Traffic
+## Estimated Traffic.
 
 | Metric                             | Estimate                        |
-|------------------------------------|---------------------------------|
+| ---------------------------------- | ------------------------------- |
 | Upstream transaction rate (steady) | 200 TPS                         |
 | Upstream transaction rate (peak)   | 500 TPS                         |
 | Evaluations per day                | ~17,280,000 (200 TPS × 86,400s) |
 | Active fraud rules                 | 10–50                           |
-| Redis velocity writes per second   | ~1,000 (5 rules × 200 TPS)     |
+| Redis velocity writes per second   | ~1,000 (5 rules × 200 TPS)      |
 | Evaluation records stored/day      | ~17M rows (partitioned monthly) |
 | FraudDecision events/day           | ~17M                            |
 | Fraud alerts created/day (est. 1%) | ~172,000                        |
