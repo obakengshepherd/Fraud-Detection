@@ -2,7 +2,7 @@
 
 ---
 
-## Section 1 — The Problem
+## Section 1 — The Problem.
 
 Every financial transaction carries the risk of fraud. A stolen card, a compromised account,
 or an automated bot can initiate hundreds of fraudulent transactions before a human analyst
