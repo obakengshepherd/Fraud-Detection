@@ -43,9 +43,10 @@ conversion rates.
 
 ---
 
-## Section 3 — Scope of This Implementation
+## Section 3 — Scope of This Implementation.
 
 **In scope:**
+
 - Event-driven transaction ingestion via Kafka (`transactions` topic)
 - Per-user behaviour profile: rolling transaction velocity, average amount, known locations
 - Rule-based fraud evaluation engine with configurable, prioritised rules
@@ -57,6 +58,7 @@ conversion rates.
 - FraudDecision event publishing for downstream consumers (payment gateway)
 
 **Out of scope:**
+
 - Machine learning or statistical anomaly detection models
 - Graph-based fraud network analysis
 - Device fingerprinting
