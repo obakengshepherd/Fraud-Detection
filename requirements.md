@@ -94,7 +94,7 @@ resolution action and the resolving user.
 
 ---
 
-## Data Flow
+## Data Flow.
 
 ### Transaction Evaluation Pipeline
 
