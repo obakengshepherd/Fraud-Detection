@@ -67,7 +67,7 @@ conversion rates.
 
 ---
 
-## Section 4 — Success Criteria
+## Section 4 — Success Criteria.
 
 The system is working correctly when:
 
