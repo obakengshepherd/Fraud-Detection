@@ -2,7 +2,7 @@
 
 ---
 
-## Functional Requirements
+## Functional Requirements.
 
 **FR-01** — The system shall consume 100% of transaction events from the `transactions`
 Kafka topic and evaluate each one for fraud risk.
