@@ -1,0 +1,4 @@
+
+# Ignore a specif markdown file
+AGENT_CHANGES.md
+BUILD_FIX_SUMMARY.md

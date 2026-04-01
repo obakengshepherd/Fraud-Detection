@@ -6,6 +6,15 @@
     <RootNamespace>FraudDetection</RootNamespace>
     <AssemblyName>FraudDetection.Api</AssemblyName>
   </PropertyGroup>
+  
+  <!-- Include all C# source files from this and parent folders -->
+  <ItemGroup>
+    <Compile Include="**/*.cs" />
+    <Compile Include="../Application/**/*.cs" />
+    <Compile Include="../Infrastructure/**/*.cs" />
+    <Compile Include="../Domain/**/*.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />

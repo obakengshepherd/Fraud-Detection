@@ -1,0 +1,45 @@
+namespace FraudDetection.Application.Exceptions;
+
+/// <summary>
+/// Thrown when an evaluation is not found for a given transaction.
+/// </summary>
+public class EvaluationNotFoundException : Exception
+{
+    public string TransactionId { get; }
+
+    public EvaluationNotFoundException(string transactionId)
+        : base($"Evaluation not found for transaction {transactionId}")
+    {
+        TransactionId = transactionId;
+    }
+}
+
+/// <summary>
+/// Thrown when attempting to resolve an alert that is already resolved.
+/// </summary>
+public class AlertAlreadyResolvedException : Exception
+{
+    public string AlertId { get; }
+
+    public AlertAlreadyResolvedException(string alertId)
+        : base($"Alert {alertId} is already resolved")
+    {
+        AlertId = alertId;
+    }
+}
+
+/// <summary>
+/// Thrown when a rule validation fails.
+/// </summary>
+public class InvalidRuleException : Exception
+{
+    public InvalidRuleException(string message) : base(message) { }
+}
+
+/// <summary>
+/// Thrown when a transaction event cannot be parsed or is invalid.
+/// </summary>
+public class InvalidTransactionEventException : Exception
+{
+    public InvalidTransactionEventException(string message) : base(message) { }
+}
